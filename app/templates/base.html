@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    {% block styles %}
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+      integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
+      crossorigin="anonymous"
+    />
+
+    {% endblock %}
+
+   {% block title %}
+    <title>MyShare</title>
+    {% endblock %}
+
+  </head>
+  <body class = "bg-dark">
+    <header class="p-3 text-bg-dark bg-dark">
+    <div class="container">
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+          <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
+        </a>
+    <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+        <li><a href="{% url 'home' %}" class="nav-link px-2 text-secondary">Home</a></li>
+        <li><a href="{% url 'upload_file' %}"  class="nav-link px-2 text-white">Upload File</a></li>
+        <li><a href="{% url 'uploaded_file' %}"  class="nav-link px-2 text-white">Uploaded File</a></li>
+        {% if not request.user.is_authenticated %}
+            <!-- Display the "Register" link only if the user is not authenticated -->
+            <li><a href="{% url 'register' %}"  class="nav-link px-2 text-white">Register</a></li>
+        {% else %}
+        <li><a href="{% url 'user_logout' %}"  class="nav-link px-2 text-white">Log Out</a></li>
+        {% endif %}
+        <!-- Add other navigation links as needed -->
+    </ul>
+      </div>
+    </div>
+  </header>
+    {% block content %}{% endblock %}
+  </body>
+</html>

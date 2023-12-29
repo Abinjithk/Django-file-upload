@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}<title>Register page</title>{% endblock %}
+
+{% block content %}
+<main class="mb-4 mt-4">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 col-md-10 mx-auto text-white text-center">
+                <h1 class="mb-4 mt-4">Please Register</h1>
+                <form method="post" action="{% url 'register' %}">
+                    {% csrf_token %}
+
+                    <!-- Replace 'your_form_submit_view' with the actual URL or view name where your form should be submitted -->
+
+                    <!-- Display each form field with its label and widget -->
+                    {{ form.as_p }}
+
+                    <!-- Add your submit button or any additional elements as needed -->
+                    <button type="submit" class="btn btn-primary">Register</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+
+
+{% endblock %}

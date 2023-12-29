@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block title %} <title>MyShare</title> {% endblock %}
+{% block content %}
+<main class="px-3 text-center text-white">
+    <h1 class="mb-5 mt-5">Welcome User</h1>
+    <h2 class="mb-3">Upload and share file</h2>
+    <p class="lead">Welcome user to the home page of Myshare. This is a online platform where you can <br> upload and share files effortlessly. The feature of this app is that you can search for  <br> other users in the search bar and share files with them thar you are uploaded in <br> this website. User can also keep track of their files and the name of the users <br> that you are share this files too.</p>
+    <p class="lead">
+      <a href="{% url 'upload_file' %}" class="btn btn-lg btn-light fw-bold border-white bg-white mt-3">Upload File</a>
+      <a href="{% url 'uploaded_file' %}" class="btn btn-lg btn-light fw-bold border-white bg-white mt-3">Uploaded Files</a>
+    </p>
+  </main>
+{% endblock %}
